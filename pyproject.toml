@@ -5,5 +5,43 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "matplotlib>=3.11.1",
+    # --- 資料科學核心 ---
+    "ipython>=9.10.0",
+    "pandas>=3.0.0",
+    "numpy>=1.26.0",
+    "scipy>=1.17.0",
+    # --- 技術指標（純 Python，不依賴 TA-Lib C 函式庫）---
+    "ta>=0.11.0",
+    # --- 資料格式 ---
+    "pyarrow>=14.0.0",       # parquet 讀寫支援
+    "fastparquet>=2023.10.1", # 備用 parquet 引擎
+    # --- 資料收集 ---
+    "requests>=2.32.0",
+    "yfinance>=0.2.40",
+    # --- 設定檔 ---
+    "pyyaml>=6.0.3",
+    "python-dotenv>=1.0.0",  # .env 環境變數載入
+    # --- 深度學習 ---
+    "torch>=2.0.0",
+    # --- 機器學習 ---
+    "scikit-learn>=1.8.0",
+    "scikit-image>=0.26.0",
+    # --- 實驗追蹤 ---
+    "tensorboard>=2.20.0",
+    # --- 工具 ---
+    "tqdm>=4.67.3",
+    # --- 測試 ---
     "pytest>=9.1.1",
+    "pytest-mock>=3.14.0",
 ]
+ 
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true  # 關鍵：這會防止 uv 自動去這裡抓其他套件
