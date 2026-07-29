@@ -41,6 +41,10 @@ dev = [
     "pytest>=9.0.2",
 ]
 
+[tool.pytest.ini_options]
+pythonpath = ["."]  # 將目前目錄（專案根目錄）加入 Python 模組搜尋路徑
+testpaths = ["tests"]
+
 [[tool.uv.index]]
 name = "pytorch-cu126"
 url = "https://download.pytorch.org/whl/cu126"
