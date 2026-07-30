@@ -8,6 +8,7 @@ wheels/
 logs/
 runs/
 *.png
-
+configs/conf.json
+.env
 # Virtual environments
 .venv

@@ -1,4 +1,4 @@
-from src.logger import get_logger
+from src.core.logger import get_logger
 def test_logger_initialization():
     logger = get_logger()
     assert logger is not None

@@ -1,12 +1,14 @@
 import logging
-from src.config import LOG_FILE
+from src.core.config import LOG_DIR
+import time
 
 def get_logger(name: str="Phoenix", level:int=logging.INFO)->logging.Logger:
     _logger = logging.getLogger(name)
     _logger.setLevel(level)
     if not _logger.handlers:
         formatter = logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s")
-        file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
+        log_file = f"{LOG_DIR}/app_{time.strftime('%Y-%m-%d')}.log"
+        file_handler = logging.FileHandler(log_file, encoding="utf-8")
         file_handler.setFormatter(formatter)
         _logger.addHandler(file_handler)
 
